@@ -26,7 +26,7 @@ const Navbar = () => {
                 <div className={`${styles.navLinks} ${mobileMenuOpen ? styles.mobileOpen : ''}`}>
                     <a href="#inicio" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>Inicio</a>
                     <a href="#servicios" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>Servicios</a>
-                    <a href="https://www.inmogp.com/" target="_blank" rel="noopener noreferrer" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>Propiedades</a>
+                    <a href="#propiedades" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>Propiedades</a>
                     <a href="#nosotros" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>Nosotros</a>
                     <a href="#equipo" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>Equipo</a>
                     <a href="#contacto" className={styles.navLink} onClick={() => setMobileMenuOpen(false)}>Contacto</a>

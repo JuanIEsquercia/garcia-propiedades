@@ -1,6 +1,14 @@
 
 import styles from './Location.module.css';
-import { MapPin, Phone as PhoneIcon, Instagram, Clock } from 'lucide-react';
+import { MapPin, Phone as PhoneIcon, Clock } from 'lucide-react';
+
+const InstagramIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+    </svg>
+);
 
 const Location = () => {
     return (
@@ -37,7 +45,7 @@ const Location = () => {
                         </div>
 
                         <div className={styles.contactCard}>
-                            <div className={styles.iconWrapper}><Instagram /></div>
+                            <div className={styles.iconWrapper}><InstagramIcon /></div>
                             <div>
                                 <h4>Instagram</h4>
                                 <p>
@@ -60,7 +68,6 @@ const Location = () => {
 
                 <div className={styles.mapColumn}>
                     <div className={styles.mapFrame}>
-                        {/* Visual map placeholder with a nice gradient/image for aesthetic purposes */}
                         <iframe
                             src="https://maps.google.com/maps?q=Mendoza%201055,%20Corrientes,%20Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed"
                             width="100%"
@@ -71,8 +78,6 @@ const Location = () => {
                             referrerPolicy="no-referrer-when-downgrade"
                             title="Mapa de Ubicación Garcia Propiedades"
                         ></iframe>
-                        {/* In a real scenario, an iframe or embedded map would go here, 
-                but for design we use a placeholder image to maintain the brutally aesthetic look */}
                     </div>
                 </div>
             </div>

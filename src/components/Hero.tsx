@@ -13,20 +13,13 @@ interface FeaturedProperty {
     linkUrl?: string;
 }
 
-const defaultFeatured: FeaturedProperty = {
-    imageUrl: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    title: 'Propiedad Destacada',
-    price: 'U$S 250.000',
-    location: 'Capital Federal'
-};
-
 const Hero = () => {
     const [property, setProperty] = useState<FeaturedProperty | null>(null);
 
     useEffect(() => {
-        const unsub = onSnapshot(doc(db, 'settings', 'hero_property'), (doc) => {
-            if (doc.exists()) {
-                setProperty(doc.data() as FeaturedProperty);
+        const unsub = onSnapshot(doc(db, 'settings', 'hero_property'), (snap) => {
+            if (snap.exists()) {
+                setProperty(snap.data() as FeaturedProperty);
             }
         });
         return () => unsub();
@@ -70,12 +63,24 @@ const Hero = () => {
 
                 <div className={`${styles.heroImageWrapper} animate-fade-in delay-200`}>
                     <div className={styles.glassFrame}>
-                        <div className={styles.imageOverlay}></div>
-
-                        {property ? (
+                        {property === null ? (
+                            <div className={styles.logoBanner}>
+                                <div className={styles.logoIconWrapper}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                        <polyline points="9 22 9 12 15 12 15 22" />
+                                    </svg>
+                                </div>
+                                <div className={styles.logoName}>GARCIA</div>
+                                <div className={styles.logoSub}>PROPIEDADES</div>
+                                <div className={styles.logoDivider}></div>
+                                <div className={styles.logoTagline}>Corrientes, Argentina</div>
+                            </div>
+                        ) : (
                             <>
+                                <div className={styles.imageOverlay}></div>
                                 <img
-                                    src={property.imageUrl || defaultFeatured.imageUrl}
+                                    src={property.imageUrl}
                                     alt={property.title}
                                     className={styles.heroImage}
                                 />
@@ -99,10 +104,6 @@ const Hero = () => {
                                     </div>
                                 )}
                             </>
-                        ) : (
-                            <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                <div className={styles.pulseIndicator} style={{ width: '20px', height: '20px' }}></div>
-                            </div>
                         )}
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 .servicesSection {
-    background: relative;
+    position: relative;
 }
 
 .servicesSection::before {

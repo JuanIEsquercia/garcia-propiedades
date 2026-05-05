@@ -108,6 +108,11 @@
     outline: none;
 }
 
+.input option {
+    background: #1e2a2a;
+    color: white;
+}
+
 .input:focus {
     border-color: var(--primary-light);
     box-shadow: 0 0 0 3px rgba(205, 25, 19, 0.2);

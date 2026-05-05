@@ -82,9 +82,6 @@ const Team = () => {
                         <div key={member.id} className={styles.card}>
                             <div className={styles.imageWrapper}>
                                 <img src={member.image || 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'} alt={member.name} className={styles.image} />
-                                <div className={styles.socialOverlay}>
-                                    <span className={styles.socialLink}>in</span>
-                                </div>
                             </div>
                             <div className={styles.info}>
                                 <h4 className={styles.name}>{member.name}</h4>

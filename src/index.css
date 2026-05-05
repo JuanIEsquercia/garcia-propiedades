@@ -142,17 +142,24 @@ section {
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.delay-100 {
-  animation-delay: 100ms;
+.animate-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.delay-200 {
-  animation-delay: 200ms;
+.delay-100.visible {
+  transition-delay: 100ms;
 }
 
-.delay-300 {
-  animation-delay: 300ms;
+.delay-200.visible {
+  transition-delay: 200ms;
+}
+
+.delay-300.visible {
+  transition-delay: 300ms;
 }
